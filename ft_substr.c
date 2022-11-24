@@ -24,7 +24,7 @@ static size_t	ft_strlen2(const char *s)
 	return (i);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
@@ -51,4 +51,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	str[j] = '\0';
 	return (str);
-}
+}*/

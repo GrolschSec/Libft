@@ -24,7 +24,7 @@ static size_t	ft_strlen2(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+/*char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	length;
 	size_t	i;
@@ -46,4 +46,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	str[i] = '\0';
 	return (str);
-}
+}*/
