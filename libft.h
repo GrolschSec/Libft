@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 20:57:46 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/02/20 08:30:46 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:38:30 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../includes/so_long.h"
-
+// Struct
+typedef struct	s_point
+{
+    int			x;
+    int			y;
+}				t_point;
+// Functions
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
