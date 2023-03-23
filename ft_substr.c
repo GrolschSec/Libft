@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:26:02 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/16 22:03:15 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/03/23 03:59:24 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start >= ft_strlen2(s))
 	{
 		str = ((char *)malloc(sizeof(char) * 1));
+		if (!str)
+			return (NULL);
 		str[0] = 0;
 		return (str);
 	}
