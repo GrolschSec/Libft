@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 23:53:49 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/16 22:21:05 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:25:06 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_count_str(const char *s, char c)
 	return (strs);
 }	
 
-static void	ft_clean_malloc(char **tab)
+static char	**ft_clean_malloc(char **tab)
 {
 	int	i;
 
@@ -47,10 +47,10 @@ static void	ft_clean_malloc(char **tab)
 		i++;
 	}
 	free(tab);
-	tab = NULL;
+	return (NULL);
 }
 
-static void	ft_fill_tab(char **tab, char *s, char c, int strs)
+static char	**ft_fill_tab(char **tab, char *s, char c, int strs)
 {
 	int		i;
 	int		j;
@@ -76,6 +76,7 @@ static void	ft_fill_tab(char **tab, char *s, char c, int strs)
 		tab[l][k] = '\0';
 		l++;
 	}
+	return (tab);
 }
 
 char	**ft_split(char const *s, char c)
@@ -90,6 +91,5 @@ char	**ft_split(char const *s, char c)
 	if (tab == NULL)
 		return (NULL);
 	tab[strs] = 0;
-	ft_fill_tab(tab, (char *)s, c, strs);
-	return (tab);
+	return (ft_fill_tab(tab, (char *)s, c, strs));
 }
