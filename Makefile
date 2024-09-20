@@ -49,9 +49,9 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 
 %.o: %.c
-	@echo -e "\033[0;33mGenerating obj..."
-	$(CC) -c $(CFLAGS) $^
-	@echo -e "\033[0m"
+	@echo -n "\033[0;33mGenerating obj $@"
+	@$(CC) -c $(CFLAGS) $^
+	@echo "\033[0m"
 
 clean:
 	@echo "Removing object files"
