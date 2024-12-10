@@ -6,11 +6,10 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:21:26 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/11 18:06:54 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:56:47 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -57,10 +56,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
-/*#include <stdio.h>
-
-int	main(void)
-{
-	printf("%d", ft_numsize(0));	
-}*/

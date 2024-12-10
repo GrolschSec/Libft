@@ -6,11 +6,11 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 14:47:18 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/16 22:18:43 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:00:54 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 static unsigned int	ft_isset(char c, char const *set)
 {

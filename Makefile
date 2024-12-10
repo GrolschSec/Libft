@@ -1,8 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/10 21:03:07 by rlouvrie          #+#    #+#              #
+#    Updated: 2024/12/10 21:13:39 by rlouvrie         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
-CC = gcc
+CC = cc
+
+INCLUDES =	-Iinclude
 
 CFLAGS = -Wall -Wextra -Werror
+
+SRCDIR	=	src
+
+OBJDIR	=	obj
 
 SRC = ft_memset.c \
     ft_bzero.c \
@@ -37,28 +55,25 @@ SRC = ft_memset.c \
     ft_strncmp.c \
 	ft_itoa.c \
     ft_strnstr.c \
-    ft_atoi.c \
+    ft_atoi.c
 
-OBJ = $(SRC:.c=.o)
+OBJS    =   $(SRC:%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@echo "Creating lib $(NAME)"
+$(NAME): $(OBJS)
 	@ar rc $(NAME) $^
 	@ranlib $(NAME)
+	@echo "Successfully created $(NAME)."
 
-%.o: %.c
-	@echo -n "\033[0;33mGenerating obj $@"
-	@$(CC) -c $(CFLAGS) $^
-	@echo "\033[0m"
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	@echo "Removing object files"
-	@rm -f $(OBJ)
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@echo "Removing lib $(NAME)"
 	@rm -f $(NAME)
 
 re: fclean all

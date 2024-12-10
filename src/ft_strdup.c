@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 15:09:43 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/10 23:06:44 by rlouvrie         ###   ########.fr       */
+/*   Created: 2022/05/05 14:36:53 by rlouvrie          #+#    #+#             */
+/*   Updated: 2024/12/10 20:59:24 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strdup(const char *src)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			i;
+	char	*tab;
+	int		l;
+	int		i;
 
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (n--)
+	l = ft_strlen(src);
+	tab = (char *) malloc((l + 1) * sizeof(*tab));
+	if (tab == NULL)
+		return (NULL);
+	while (src[i])
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		tab[i] = src[i];
 		i++;
 	}
-	return (0);
+	tab[i] = '\0';
+	return (tab);
 }

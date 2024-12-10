@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 20:44:54 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/06 13:16:40 by rlouvrie         ###   ########.fr       */
+/*   Created: 2022/05/03 14:49:16 by rlouvrie          #+#    #+#             */
+/*   Updated: 2024/12/10 20:55:56 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	unsigned char	*ptr;
 
+	ptr = s;
 	i = 0;
-	if (little[i] == '\0' || little == NULL)
-		return ((char *)big);
-	while (big[i] && i < len)
-	{
-		j = 0;
-		while (big[i + j] == little[j] && j + i < len)
-		{
-			if (little[j + 1] == '\0')
-				return ((char *)&big[i]);
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
+	if (n == 0)
+		return ;
+	while (i < n)
+		ptr[i++] = '\0';
 }

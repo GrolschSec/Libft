@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 20:47:28 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/06 19:14:48 by rlouvrie         ###   ########.fr       */
+/*   Created: 2022/05/03 20:44:54 by rlouvrie          #+#    #+#             */
+/*   Updated: 2024/12/10 21:00:39 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int		i;
-	char	*ptr;
+	size_t	i;
+	size_t	j;
 
-	ptr = NULL;
 	i = 0;
-	while (s[i])
+	if (little[i] == '\0' || little == NULL)
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
-		if (s[i] == (unsigned char)c)
+		j = 0;
+		while (big[i + j] == little[j] && j + i < len)
 		{
-			ptr = ((char *)&s[i]);
+			if (little[j + 1] == '\0')
+				return ((char *)&big[i]);
+			j++;
 		}
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)&s[i]);
-	return (ptr);
+	return (NULL);
 }

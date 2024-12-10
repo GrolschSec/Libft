@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 10:57:06 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/16 21:59:10 by rlouvrie         ###   ########.fr       */
+/*   Created: 2022/05/03 14:48:57 by rlouvrie          #+#    #+#             */
+/*   Updated: 2024/12/10 20:58:02 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	ldst;
-	size_t	ldst_copy;
 	size_t	i;
+	char	*temps;
+	char	*tempd;
 
-	ldst = ft_strlen(dst);
-	ldst_copy = ldst;
+	temps = (char *) src;
+	tempd = (char *) dest;
 	i = 0;
-	if (ldst_copy >= dstsize)
-		return (ft_strlen(src) + dstsize);
-	while (src[i] != 0 && ldst < dstsize - 1)
+	while (i < n)
 	{
-		dst[ldst] = src[i];
+		tempd[i] = temps[i];
 		i++;
-		ldst++;
 	}
-	dst[ldst] = '\0';
-	return (ldst_copy + ft_strlen(src));
+	return ((void *)tempd);
 }

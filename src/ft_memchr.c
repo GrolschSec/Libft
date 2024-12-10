@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlouvrie <rlouvrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 18:08:53 by rlouvrie          #+#    #+#             */
-/*   Updated: 2022/05/16 22:16:18 by rlouvrie         ###   ########.fr       */
+/*   Created: 2022/05/05 15:00:21 by rlouvrie          #+#    #+#             */
+/*   Updated: 2024/12/10 20:57:35 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	char	*str;
 
-	if (s == NULL || fd < 0)
-		return ;
-	i = 0;
-	while (s[i])
+	str = (char *)s;
+	while (n--)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		if (*str == (char)c)
+			return (str);
+		str++;
 	}
+	return (NULL);
 }
